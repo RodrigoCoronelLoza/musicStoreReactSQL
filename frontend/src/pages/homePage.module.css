@@ -1,0 +1,21 @@
+.container {
+  /* height: 100vh; */
+  /* height: 80vh; */
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  flex: 1;
+  background-color: black;
+}
+.music {
+  font-size: larger;
+  background-color: black;
+  color: goldenrod;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 1px solid gold;
+  border-radius: 20px;
+}

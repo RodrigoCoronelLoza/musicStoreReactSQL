@@ -24,11 +24,11 @@ export default function Header() {
             </li>
 
             <li>
-              <Link to="/">Woodwinds</Link>
+              <Link to="/clarineteAccessories">Clarinet Accesories</Link>
             </li>
 
             <li>
-              <Link to="/">Brass</Link>
+              <Link to="/saxophoneAccessories">Saxophone Accesories</Link>
             </li>
             {user ? (
               <li className={classes.menu_container}>

@@ -1,0 +1,51 @@
+.containerStyle {
+  height: 800px;
+  position: relative;
+}
+
+.description {
+  width: 600px;
+  position: absolute;
+  z-index: 999;
+  color: aliceblue;
+  top: 20%;
+  left: 20%;
+}
+
+.description h1 {
+  font-size: 6rem;
+}
+
+.description p {
+  font-size: 2rem;
+}
+
+.carouselBoullt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselBoullt span {
+  width: 45px;
+  height: 12px;
+  background-color: rgb(185, 183, 181);
+  margin-left: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 3px 2px 2px rgba(73, 72, 72, 0.388);
+}
+.transparentbackground {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  opacity: 70%;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 0, 0, 0),
+    rgba(255, 255, 0, 1)
+  );
+}
