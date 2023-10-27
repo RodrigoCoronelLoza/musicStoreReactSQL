@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import Thumbnails from "../components/Thumbnails/Thumbnails";
 import { clarinet_accesories } from "../data";
 import { getAll } from "../services/clarinetService";
+import classes from "./clarinetPage.module.css";
 const initialState = { clarinetAcc: [] };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -22,7 +23,9 @@ export default function ClarinetPage() {
   }, []);
   return (
     <>
-      <Thumbnails acc={clarinetAcc} />
+      <div className={classes.container}>
+        <Thumbnails acc={clarinetAcc} folder={"clarinets"} />
+      </div>
     </>
   );
 }

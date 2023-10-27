@@ -51,15 +51,48 @@ export const clarinet_accesories = [
     fabrication: "US",
   },
   {
+    id: 5,
     url: "pic-5.jpg",
     title: "vandore ligature",
     price: 80,
     fabrication: "US",
   },
   {
+    id: 6,
     url: "pic-6.jpg",
     title: "clarinet stand K&M",
     price: 50,
     fabrication: "germany",
+  },
+];
+
+export const saxophone_accesories = [
+  {
+    id: 1,
+    url: "pic-1.jpg",
+    title: "sax mouthpiece",
+    price: 200,
+    fabrication: "Italy",
+  },
+  {
+    id: 2,
+    url: "pic-2.jpg",
+    title: "sax legere reed",
+    price: 30,
+    fabrication: "US",
+  },
+  {
+    id: 3,
+    url: "pic-3.jpg",
+    title: "sax silverstein ligature",
+    price: 80,
+    fabrication: "US",
+  },
+  {
+    id: 4,
+    url: "pic-4.jpg",
+    title: "sax vandoren mouthpiece",
+    price: 100,
+    fabrication: "US",
   },
 ];
