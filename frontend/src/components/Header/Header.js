@@ -24,7 +24,7 @@ export default function Header() {
             </li>
 
             <li>
-              <Link to="/clarineteAccessories">Clarinet Accesories</Link>
+              <Link to="/clarinetAccessories">Clarinet Accesories</Link>
             </li>
 
             <li>

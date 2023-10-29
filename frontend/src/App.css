@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+.Body {
+  background-color: aqua;
+  height: auto;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

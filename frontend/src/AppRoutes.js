@@ -8,8 +8,24 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
-      <Route path="/clarineteAccessories" element={<ClarinetPage />}></Route>
+      <Route path="/clarinetAccessories" element={<ClarinetPage />}></Route>
       <Route path="/saxophoneAccessories" element={<SaxophonePage />}></Route>
+      <Route
+        path="/clarinetAccessories/search/:searchTerm"
+        element={<ClarinetPage />}
+      ></Route>
+      <Route
+        path="/clarinetAccessories/tag/:tag"
+        element={<ClarinetPage />}
+      ></Route>
+      <Route
+        path="/saxophoneAccessories/search/:searchTerm"
+        element={<SaxophonePage />}
+      ></Route>
+      <Route
+        path="/saxophoneAccessories/tag/:tag"
+        element={<SaxophonePage />}
+      ></Route>
     </Routes>
   );
 }

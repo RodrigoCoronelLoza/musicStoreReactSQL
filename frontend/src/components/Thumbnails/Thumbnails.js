@@ -13,10 +13,10 @@ export default function Thumbnails({ acc, folder }) {
               <img
                 className={classes.image}
                 src={`/images/${folder}/${acc.url}`}
-                alt={acc.title}
+                alt={acc.name}
               />
               <div className={classes.content}>
-                <div className={classes.name}>{acc.title}</div>
+                <div className={classes.name}>{acc.name}</div>
 
                 <div className={classes.product_item_footer}>
                   <div className={classes.origins}>
