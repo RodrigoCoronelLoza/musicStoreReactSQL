@@ -13,3 +13,6 @@ export const getAllSaxByTag = async (tag) => {
   if (tag === "All") return getAll();
   return saxophone_accesories.filter((item) => item.tags?.includes(tag));
 };
+
+export const getSaxById = async (clarId) =>
+  saxophone_accesories.find((item) => item.id === clarId);

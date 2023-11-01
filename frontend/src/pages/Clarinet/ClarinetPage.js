@@ -1,15 +1,16 @@
 import React, { useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
-import Search from "../components/Search/Search";
-import Tags from "../components/Tags/Tags";
-import Thumbnails from "../components/Thumbnails/Thumbnails";
-import { clarinet_accesories } from "../data";
+import NotFound from "../../components/NotFound/NotFound";
+import Search from "../../components/Search/Search";
+import Tags from "../../components/Tags/Tags";
+import Thumbnails from "../../components/Thumbnails/Thumbnails";
+import { clarinet_accesories } from "../../data";
 import {
   getAll,
   getAllClarByTag,
   getAllClarTags,
   search,
-} from "../services/clarinetService";
+} from "../../services/clarinetService";
 import classes from "./clarinetPage.module.css";
 const initialState = { clarinetAcc: [], clarinetTags: [] };
 const reducer = (state, action) => {
@@ -45,7 +46,8 @@ export default function ClarinetPage() {
       <div className={classes.container}>
         <Search folder={"clarinet"} />
         <Tags folder={"clarinet"} tags={clarinetTags} />
-        <Thumbnails acc={clarinetAcc} folder={"clarinets"} />
+        {clarinetAcc.length === 0 && <NotFound />}
+        <Thumbnails acc={clarinetAcc} folder={"clarinet"} />
       </div>
     </>
   );

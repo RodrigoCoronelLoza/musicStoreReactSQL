@@ -1,8 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ClarinetPage from "./pages/ClarinetPage";
-import HomePage from "./pages/HomePage";
-import SaxophonePage from "./pages/SaxophonePage";
+import AccessoryPage from "./pages/Accesory/AccessoryPage";
+import CartPage from "./pages/Cart/CartPage";
+import ClarinetPage from "./pages/Clarinet/ClarinetPage";
+import HomePage from "./pages/Home/HomePage";
+import SaxophonePage from "./pages/Saxophone/SaxophonePage";
 
 export default function AppRoutes() {
   return (
@@ -19,6 +21,10 @@ export default function AppRoutes() {
         element={<ClarinetPage />}
       ></Route>
       <Route
+        path="/clarinetAccessories/:id"
+        element={<AccessoryPage folder={"clarinet"} />}
+      ></Route>
+      <Route
         path="/saxophoneAccessories/search/:searchTerm"
         element={<SaxophonePage />}
       ></Route>
@@ -26,6 +32,11 @@ export default function AppRoutes() {
         path="/saxophoneAccessories/tag/:tag"
         element={<SaxophonePage />}
       ></Route>
+      <Route
+        path="/saxophoneAccessories/:id"
+        element={<AccessoryPage folder={"saxophone"} />}
+      ></Route>
+      <Route path="/cart" element={<CartPage />}></Route>
     </Routes>
   );
 }
