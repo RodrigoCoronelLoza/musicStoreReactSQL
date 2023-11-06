@@ -4,7 +4,7 @@ import NotFound from "../../components/NotFound/NotFound";
 import Search from "../../components/Search/Search";
 import Tags from "../../components/Tags/Tags";
 import Thumbnails from "../../components/Thumbnails/Thumbnails";
-import { clarinet_accesories } from "../../data";
+// import { clarinet_accesories } from "../../../../backend/src/data";
 import {
   getAll,
   getAllClarByTag,
@@ -47,6 +47,7 @@ export default function ClarinetPage() {
         <Search folder={"clarinet"} />
         <Tags folder={"clarinet"} tags={clarinetTags} />
         {clarinetAcc.length === 0 && <NotFound />}
+        {console.log(clarinetAcc)}
         <Thumbnails acc={clarinetAcc} folder={"clarinet"} />
       </div>
     </>

@@ -1,25 +1,25 @@
-export const imageSlide = [
-  {
-    url: "pic1.jpg",
-    title: "Woodwind accesories",
-    body: "Moutpieces, reeds",
-  },
-  {
-    url: "pic2.jpg",
-    title: "Instruments",
-    body: "Yamaha-Buffet ",
-  },
-  {
-    url: "pic3.jpg",
-    title: "Brass accesories",
-    body: "Mouthpieces, booster ",
-  },
-  {
-    url: "pic4.jpg",
-    title: "Strings",
-    body: "Instruments and accesories",
-  },
-];
+// export const imageSlide = [
+//   {
+//     url: "pic1.jpg",
+//     title: "Woodwind accesories",
+//     body: "Moutpieces, reeds",
+//   },
+//   {
+//     url: "pic2.jpg",
+//     title: "Instruments",
+//     body: "Yamaha-Buffet ",
+//   },
+//   {
+//     url: "pic3.jpg",
+//     title: "Brass accesories",
+//     body: "Mouthpieces, booster ",
+//   },
+//   {
+//     url: "pic4.jpg",
+//     title: "Strings",
+//     body: "Instruments and accesories",
+//   },
+// ];
 
 export const clarinet_accesories = [
   {

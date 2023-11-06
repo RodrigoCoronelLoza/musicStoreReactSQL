@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { clarinet_accesories } from "../data";
+// import { clarinet_accesories } from "../../../backend/src/data";
 const CartContext = createContext(null);
 const CART_MS_KEY = "cartms";
 const EMPTY_CART = { items: [], totalPrice: 0, totalCount: 0 };
