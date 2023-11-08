@@ -55,7 +55,7 @@ export default function CartPage() {
                 <div>
                   <button
                     className={classes.remove_button}
-                    onClick={() => removeFromCart(item.acc.id)}
+                    onClick={() => removeFromCart(item.acc.id, item.acc.group)}
                   >
                     Remove
                   </button>

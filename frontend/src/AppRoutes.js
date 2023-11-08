@@ -4,6 +4,7 @@ import AccessoryPage from "./pages/Accesory/AccessoryPage";
 import CartPage from "./pages/Cart/CartPage";
 import ClarinetPage from "./pages/Clarinet/ClarinetPage";
 import HomePage from "./pages/Home/HomePage";
+import LoginPage from "./pages/Login/LoginPage";
 import SaxophonePage from "./pages/Saxophone/SaxophonePage";
 
 export default function AppRoutes() {
@@ -37,6 +38,7 @@ export default function AppRoutes() {
         element={<AccessoryPage folder={"saxophone"} />}
       ></Route>
       <Route path="/cart" element={<CartPage />}></Route>
+      <Route path="/login" element={<LoginPage />}></Route>
     </Routes>
   );
 }

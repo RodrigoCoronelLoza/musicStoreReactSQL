@@ -29,10 +29,14 @@ export default function CartProvider({ children }) {
   const sum = (items) => {
     return items.reduce((prevValue, curValue) => prevValue + curValue, 0);
   };
-  const removeFromCart = (accId) => {
+  const removeFromCart = (accId, accGroup) => {
     // console.log(accGroup);
+    // const { acce } = accItem;
     console.log(accId);
-    const filteredCartItems = cartItems.filter((item) => item.acc.id !== accId);
+    console.log(accGroup);
+    const filteredCartItems = cartItems.filter(
+      (item) => item.acc.id !== accId || item.acc.group !== accGroup
+    );
     setCartItems(filteredCartItems);
   };
 
@@ -44,7 +48,12 @@ export default function CartProvider({ children }) {
       price: acc.price * newQuantity,
     };
     setCartItems(
-      cartItems.map((item) => (item.acc.id === acc.id ? changedCartItem : item))
+      cartItems.map((item) =>
+        item.acc.id === acc.id && item.acc.group === acc.group
+          ? changedCartItem
+          : item
+      )
+      // cartItems.map((item) => (item.acc.id === acc.id ? changedCartItem : item))
     );
   };
 

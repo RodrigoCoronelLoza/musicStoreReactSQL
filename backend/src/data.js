@@ -23,7 +23,7 @@
 
 export const clarinet_accesories = [
   {
-    id: "1clar",
+    id: "1",
     url: "pic-1.jpg",
     name: "Pomarico Saphire A/Bb Mouthpiece",
     price: 200,
@@ -32,7 +32,7 @@ export const clarinet_accesories = [
     group: "clarinet",
   },
   {
-    id: "2clar",
+    id: "2",
     url: "pic-2.jpg",
     name: "Legere Reed Signature European Cut 2.5 ",
     price: 30,
@@ -41,7 +41,7 @@ export const clarinet_accesories = [
     group: "clarinet",
   },
   {
-    id: "3clar",
+    id: "3",
     url: "pic-3.jpg",
     name: "Silverstein Ligature Q07A",
     price: 80,
@@ -50,7 +50,7 @@ export const clarinet_accesories = [
     group: "clarinet",
   },
   {
-    id: "4clar",
+    id: "4",
     url: "pic-4.jpg",
     name: "Vandoren MouthPiece CM308 Traditional B45 ",
     price: 100,
@@ -59,7 +59,7 @@ export const clarinet_accesories = [
     group: "clarinet",
   },
   {
-    id: "5clar",
+    id: "5",
     url: "pic-5.jpg",
     name: "Vandoren Ligature LC21P",
     price: 80,
@@ -68,7 +68,7 @@ export const clarinet_accesories = [
     group: "clarinet",
   },
   {
-    id: "6clar",
+    id: "6",
     url: "pic-6.jpg",
     name: "Stand K&M 15222",
     price: 50,
@@ -98,7 +98,7 @@ export const sample_tags_clar = [
 
 export const saxophone_accesories = [
   {
-    id: "1sax",
+    id: "1",
     url: "pic-1.jpg",
     name: "Stand Hercules 530BB",
     price: 200,
@@ -107,7 +107,7 @@ export const saxophone_accesories = [
     group: "saxophone",
   },
   {
-    id: "2sax",
+    id: "2",
     url: "pic-2.jpg",
     name: "Legere Reed Signature Alto, Plastic 2",
     price: 30,
@@ -116,7 +116,7 @@ export const saxophone_accesories = [
     group: "saxophone",
   },
   {
-    id: "3sax",
+    id: "3",
     url: "pic-3.jpg",
     name: "Otto Link 7 Metal Goldplated Mouthpiece",
     price: 80,
@@ -125,7 +125,7 @@ export const saxophone_accesories = [
     group: "saxophone",
   },
   {
-    id: "4sax",
+    id: "4",
     url: "pic-4.jpg",
     name: "Francois Louis Ultimate Ligature -Alto",
     price: 100,
@@ -148,4 +148,23 @@ export const sample_tags_sax = [
   { name: "Louis", count: 1 },
   { name: "Stand", count: 1 },
   { name: "Hercules", count: 1 },
+];
+
+export const sample_users = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john@gmail.com",
+    password: "12345",
+    address: "Toronto On",
+    isAdmin: false,
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    email: "jane@gmail.com",
+    password: "12345",
+    address: "Shanghai",
+    isAdmin: true,
+  },
 ];
