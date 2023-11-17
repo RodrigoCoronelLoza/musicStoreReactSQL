@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
       const user = await UserService.login(email, password);
       setUser(user);
       toast.success("Login Succesful");
+      console.log(user);
     } catch (err) {
       toast.error(err.response.data);
     }

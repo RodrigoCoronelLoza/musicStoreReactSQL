@@ -43,5 +43,6 @@ export const getAllClarByTag = async (tag) => {
 
 export const getClarById = async (clarId) => {
   const { data } = await axios.get("/api/acc/clarinet/" + clarId);
-  return data;
+  console.log(data);
+  return data[0];
 };

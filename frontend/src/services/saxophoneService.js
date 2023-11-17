@@ -34,7 +34,7 @@ export const getAllSaxTags = async () => {
 
 export const getAllSaxByTag = async (tag) => {
   if (tag === "All") return getAll();
-  const { data } = await axios.get("/api/acc/saxophone/tag" + tag);
+  const { data } = await axios.get("/api/acc/saxophone/tag/" + tag);
   return data;
 };
 
@@ -43,5 +43,5 @@ export const getAllSaxByTag = async (tag) => {
 
 export const getSaxById = async (saxId) => {
   const { data } = await axios.get("/api/acc/saxophone/" + saxId);
-  return data;
+  return data[0];
 };

@@ -47,7 +47,6 @@ export default function ClarinetPage() {
         <Search folder={"clarinet"} />
         <Tags folder={"clarinet"} tags={clarinetTags} />
         {clarinetAcc.length === 0 && <NotFound />}
-        {console.log(clarinetAcc)}
         <Thumbnails acc={clarinetAcc} folder={"clarinet"} />
       </div>
     </>

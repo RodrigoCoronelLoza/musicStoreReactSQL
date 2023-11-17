@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "url": "pic-1.jpg",
+    "name": "Stand Hercules 530BB",
+    "price": 200,
+    "fabrication": "US",
+    "tags": ["Stand", "Hercules", "AltoSax"],
+    "group": "saxophone"
+  },
+  {
+    "id": "2",
+    "url": "pic-2.jpg",
+    "name": "Legere Reed Signature Alto, Plastic 2",
+    "price": 30,
+    "fabrication": "US",
+    "tags": ["Reed", "Synthetic", "Legere", "AltoSax"],
+    "group": "saxophone"
+  },
+  {
+    "id": "3",
+    "url": "pic-3.jpg",
+    "name": "Otto Link 7 Metal Goldplated Mouthpiece",
+    "price": 80,
+    "fabrication": "US",
+    "tags": ["Mouthpiece", "Metal", "Otto", "AltoSax"],
+    "group": "saxophone"
+  },
+  {
+    "id": "4",
+    "url": "pic-4.jpg",
+    "name": "Francois Louis Ultimate Ligature -Alto",
+    "price": 100,
+    "fabrication": "US",
+    "tags": ["Ligature", "Louis", "AltoSax"],
+    "group": "saxophone"
+  }
+]

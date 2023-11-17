@@ -33,6 +33,7 @@ export default function AccessoryPage({ folder }) {
         <NotFound message="Accesory not found" linkText="back to home page" />
       ) : (
         <div className={classes.container}>
+          {/* <h1>{acc.url}</h1> */}
           <img
             className={classes.image}
             src={`/images/${folder}/${acc.url}`}
@@ -49,7 +50,7 @@ export default function AccessoryPage({ folder }) {
             <div className={classes.tag}>
               {acc.tags && (
                 <Tags
-                  tags={acc.tags.map((tag) => ({ name: tag }))}
+                  tags={JSON.parse(acc.tags).map((tag) => ({ name: tag }))}
                   folder={folder}
                   boolean={true}
                 />

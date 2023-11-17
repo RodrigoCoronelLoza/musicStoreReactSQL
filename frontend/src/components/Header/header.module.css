@@ -37,6 +37,7 @@
 
 .menu_container {
   position: relative;
+  color: gold;
 }
 
 .menu {
@@ -48,6 +49,7 @@
 
 .menu_container:hover .menu {
   display: block;
+  /* color: red; */
 }
 
 .cart_count {

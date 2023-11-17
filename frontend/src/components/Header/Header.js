@@ -53,6 +53,7 @@ export default function Header() {
                   <span className={classes.cart_count}>{cart.totalCount}</span>
                 )}
               </Link>
+              {/* <Link to="/dbtest">DB test</Link> */}
             </li>
           </ul>
         </nav>
