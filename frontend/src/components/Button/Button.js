@@ -27,7 +27,7 @@ Button.defaultProps = {
   type: "button",
   text: "Submit",
   backgroundColor: "#000000",
-  color: "#ffff00",
+  color: "gold",
   fontSize: "1.3rem",
   width: "12rem",
   height: "3.5rem",

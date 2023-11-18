@@ -6,11 +6,12 @@ const router = Router();
 import connection from "../db.js";
 
 import handler from "express-async-handler";
-// import bycrypt from "bycrypt";
+import bcrypt from "bcryptjs";
+const PASSWORD_HASH_SALT_ROUNDS = 10;
 
 router.post(
   "/login",
-  handler((req, res) => {
+  handler(async (req, res) => {
     const { email, password } = req.body;
 
     // const sql = `SELECT * FROM music_store.users2
@@ -22,7 +23,7 @@ router.post(
     // const user = quer;
     // console.log(user);
     var user = "";
-    get_user(email, password, function (result) {
+    get_user(email, function (result) {
       user = result;
 
       // console.log(user);
@@ -30,7 +31,7 @@ router.post(
       // const user = sample_users.find(
       //   (user) => user.email === email && user.password === password
       // );
-      if (user) {
+      if (user && bcrypt.compare(password, user.password)) {
         res.send(generateTokenResponse(user));
         return;
       }
@@ -40,16 +41,60 @@ router.post(
   })
 );
 
-function get_user(email, password, callback) {
+router.post(
+  "/register",
+  handler(async (req, res) => {
+    const { name, email, password, address } = req.body;
+    var user = "";
+    get_user(email, function (result) {
+      user = result;
+      if (user) {
+        res.status(BAD_REQUEST).send("User already exists, please login!");
+        return;
+      }
+      const hashedPassword = bcrypt.hash(password, PASSWORD_HASH_SALT_ROUNDS);
+
+      const newUser = {
+        name,
+        email: email.toLowerCase(),
+        password: hashedPassword,
+        address,
+      };
+
+      // console.log("carejo");
+      var resultado = "";
+      create_user(newUser, function (result) {
+        // resultado = result;
+        get_user(email.toLowerCase(), function (result) {
+          resultado = result;
+          console.log(resultado);
+          res.send(generateTokenResponse(resultado));
+        });
+      });
+    });
+  })
+);
+
+function get_user(email, callback) {
   const sql = `SELECT * FROM music_store.users2 
-    WHERE email='${email}'AND password='${password}'`;
+    WHERE email='${email}'`;
   connection.query(sql, async (err, data) => {
-    if (err) return res.json(err);
-    // console.log(data);
+    if (err) throw err;
+    console.log(data);
     return callback(data[0]);
   });
 }
 
+function create_user(newU, callback) {
+  const sql = `INSERT INTO music_store.users2 
+  (name, email, password, address, isAdmin)
+  VALUES ('${newU.name}','${newU.email}','${newU.password}','${newU.address}','False')`;
+
+  connection.query(sql, async (err, data) => {
+    if (err) throw err;
+    return callback(data[0]);
+  });
+}
 const generateTokenResponse = (user) => {
   const token = jwt.sign(
     {
