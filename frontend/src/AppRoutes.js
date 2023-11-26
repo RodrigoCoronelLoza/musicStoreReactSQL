@@ -8,6 +8,10 @@ import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Login/LoginPage";
 import SaxophonePage from "./pages/Saxophone/SaxophonePage";
 import RegisterPage from "./pages/Register/RegisterPage";
+import AuthRoute from "./components/AuthRoute/AuthRoute";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
+import PaymentPage from "./pages/Payment/PaymentPage";
+import OrderTrackPage from "./pages/OrderTrack/OrderTrackPage";
 
 export default function AppRoutes() {
   return (
@@ -42,6 +46,32 @@ export default function AppRoutes() {
       <Route path="/cart" element={<CartPage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/register" element={<RegisterPage />}></Route>
+      <Route
+        path="/checkout"
+        element={
+          <AuthRoute>
+            <CheckoutPage />
+          </AuthRoute>
+        }
+      ></Route>
+      <Route
+        path="/payment"
+        element={
+          <AuthRoute>
+            <PaymentPage />
+          </AuthRoute>
+        }
+      ></Route>
+      <Route
+        path="/track/:orderId"
+        element={
+          <AuthRoute>
+            <OrderTrackPage />
+          </AuthRoute>
+        }
+      ></Route>
+
+      {/* <Route path="/payment" element={<PaymentPage />}></Route> */}
       <Route path="/dbtest" element={<Dbtest />}></Route>
     </Routes>
   );

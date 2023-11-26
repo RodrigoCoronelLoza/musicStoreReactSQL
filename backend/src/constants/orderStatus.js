@@ -1,0 +1,8 @@
+export const OrderStatus = {
+  NEW: "NEW",
+  CONFIRMED: "CONFIRMED",
+  PROCESSED: "PROCESSED",
+  SHIPPED: "SHIPPED",
+  CANCELED: "CANCELED",
+  //   REFUNDED: "REFUNDED",
+};
