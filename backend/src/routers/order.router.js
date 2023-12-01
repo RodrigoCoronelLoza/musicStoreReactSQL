@@ -79,6 +79,25 @@ router.get(
   "/track/:orderId",
   handler(async (req, res) => {
     const { orderId } = req.params;
+    var result_user = "";
+    // console.log(req.user.id);
+    await get_user(req.user.id, function (result) {
+      result_user = result;
+      if (!result_user.isAdmin) {
+        var result_order_double_id = "";
+        get_order_by_double_id(orderId, req.user.id, function (result) {
+          result_order_double_id = result;
+          return res.send(result_order_double_id);
+        });
+      } else {
+        var result_order_one_id = "";
+        get_order_by_single_id(orderId, function (result) {
+          result_order_one_id = result;
+          return res.send(result_order_one_id);
+        });
+      }
+      // return res.send(result_user);
+    });
   })
 );
 router.get(
@@ -110,6 +129,34 @@ async function get_order_new(status, id, callback) {
   connection.query(sql, async (err, data) => {
     if (err) throw err;
     // console.log(data[0]);
+    return callback(data);
+  });
+}
+
+async function get_order_by_double_id(id_order, id_user, callback) {
+  const sql = `SELECT * FROM music_store.orders 
+    WHERE id='${id_order}' AND user_id='${id_user}'`;
+  connection.query(sql, async (err, data) => {
+    if (err) throw err;
+    // console.log(data[0]);
+    return callback(data);
+  });
+}
+
+async function get_order_by_single_id(id_order, callback) {
+  const sql = `SELECT * FROM music_store.orders 
+    WHERE id='${id_order}'`;
+  connection.query(sql, async (err, data) => {
+    if (err) throw err;
+    // console.log(data[0]);
+    return callback(data);
+  });
+}
+
+async function get_user(id, callback) {
+  const sql = `SELECT * FROM music_store.users2 WHERE id='${id}'`;
+  connection.query(sql, async (err, data) => {
+    if (err) throw err;
     return callback(data);
   });
 }
