@@ -83,7 +83,7 @@ router.get(
     // console.log(req.user.id);
     await get_user(req.user.id, function (result) {
       result_user = result;
-      if (!result_user.isAdmin) {
+      if (!result_user[0].isAdmin) {
         var result_order_double_id = "";
         get_order_by_double_id(orderId, req.user.id, function (result) {
           result_order_double_id = result;
@@ -113,6 +113,42 @@ router.get(
   })
 );
 
+router.get("/allstatus", (req, res) => {
+  const allStatus = Object.values(OrderStatus);
+  res.send(allStatus);
+});
+
+router.get(
+  "/:status?",
+  handler(async (req, res) => {
+    const status = req.params.status;
+    var result_user = "";
+    await get_user(req.user.id, function (result) {
+      result_user = result;
+      // const filter = {};
+      // if (!result_user.isAdmin) filter.user = result_user.id;
+      // if (status) filter.status = status;
+      console.log(result_user[0].isAdmin);
+      if (result_user[0].isAdmin == "False") {
+        console.log("no es admin");
+        var result_order_status_id = "";
+        // get_order_status_id;
+        get_order_new(status, req.user.id, function (result) {
+          result_order_status_id = result;
+          // console.log(result_order_status_id);
+          return res.send(result_order_status_id);
+        });
+      } else {
+        var result_order_status = "";
+        get_order_status(status, function (result) {
+          result_order_status = result;
+          return res.send(result_order_status);
+        });
+      }
+    });
+  })
+);
+
 function delete_order_new(status, id, callback) {
   const sql = `DELETE FROM music_store.orders 
     WHERE user_id='${id}' AND status='${status}'`;
@@ -124,13 +160,23 @@ function delete_order_new(status, id, callback) {
 }
 
 async function get_order_new(status, id, callback) {
-  const sql = `SELECT * FROM music_store.orders 
+  if (status) {
+    console.log("estamos en status new");
+    const sql1 = `SELECT * FROM music_store.orders 
     WHERE user_id='${id}' AND status='${status}'`;
-  connection.query(sql, async (err, data) => {
-    if (err) throw err;
-    // console.log(data[0]);
-    return callback(data);
-  });
+    connection.query(sql1, async (err, data) => {
+      if (err) throw err;
+      return callback(data);
+    });
+  } else {
+    console.log("estamos en no status new");
+    const sql2 = `SELECT * FROM music_store.orders 
+    WHERE user_id='${id}'`;
+    connection.query(sql2, async (err, data) => {
+      if (err) throw err;
+      return callback(data);
+    });
+  }
 }
 
 async function get_order_by_double_id(id_order, id_user, callback) {
@@ -151,6 +197,28 @@ async function get_order_by_single_id(id_order, callback) {
     // console.log(data[0]);
     return callback(data);
   });
+}
+
+async function get_order_status(status, callback) {
+  // console.log(status);
+  if (status) {
+    console.log("estamos en status");
+    const sql1 = `SELECT * FROM music_store.orders 
+    WHERE status='${status}'`;
+    connection.query(sql1, async (err, data) => {
+      if (err) throw err;
+      // console.log(data[0]);
+      return callback(data);
+    });
+  } else {
+    console.log("estamos en no status");
+    const sql2 = `SELECT * FROM music_store.orders`;
+    connection.query(sql2, async (err, data) => {
+      if (err) throw err;
+      // console.log(data[0]);
+      return callback(data);
+    });
+  }
 }
 
 async function get_user(id, callback) {
