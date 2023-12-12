@@ -13,29 +13,13 @@ router.post(
   "/login",
   handler(async (req, res) => {
     const { email, password } = req.body;
-
-    // const sql = `SELECT * FROM music_store.users2
-    // WHERE email='${email}'AND password='${password}'`;
-    // const quer = connection.query(sql, async (err, data) => {
-    // if (err) return res.json(err);
-    // return data;
-    // });
-    // const user = quer;
-    // console.log(user);
     var user = "";
     get_user(email, function (result) {
       user = result;
-
-      // console.log(user);
-
-      // const user = sample_users.find(
-      //   (user) => user.email === email && user.password === password
-      // );
       if (user && bcrypt.compare(password, user.password)) {
         res.send(generateTokenResponse(user));
         return;
       }
-
       res.status(BAD_REQUEST).send("Username or password is invalid");
     });
   })
@@ -61,13 +45,10 @@ router.post(
         address,
       };
 
-      // console.log("carejo");
       var resultado = "";
       create_user(newUser, function (result) {
-        // resultado = result;
         get_user(email.toLowerCase(), function (result) {
           resultado = result;
-          // console.log(resultado);
           res.send(generateTokenResponse(resultado));
         });
       });
@@ -127,7 +108,6 @@ function get_user(email, callback) {
     WHERE email='${email}'`;
   connection.query(sql, async (err, data) => {
     if (err) throw err;
-    console.log(data);
     return callback(data[0]);
   });
 }
@@ -137,7 +117,6 @@ function get_user_by_id(id, callback) {
     WHERE id='${id}'`;
   connection.query(sql, async (err, data) => {
     if (err) throw err;
-    console.log(data);
     return callback(data[0]);
   });
 }

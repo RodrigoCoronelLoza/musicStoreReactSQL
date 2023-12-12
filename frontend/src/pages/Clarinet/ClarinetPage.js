@@ -4,7 +4,6 @@ import NotFound from "../../components/NotFound/NotFound";
 import Search from "../../components/Search/Search";
 import Tags from "../../components/Tags/Tags";
 import Thumbnails from "../../components/Thumbnails/Thumbnails";
-// import { clarinet_accesories } from "../../../../backend/src/data";
 import {
   getAll,
   getAllClarByTag,

@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-// import { clarinet_accesories } from "../../../backend/src/data";
 const CartContext = createContext(null);
 const CART_MS_KEY = "cartms";
 const EMPTY_CART = { items: [], totalPrice: 0, totalCount: 0 };
@@ -30,10 +29,6 @@ export default function CartProvider({ children }) {
     return items.reduce((prevValue, curValue) => prevValue + curValue, 0);
   };
   const removeFromCart = (accId, accGroup) => {
-    // console.log(accGroup);
-    // const { acce } = accItem;
-    console.log(accId);
-    console.log(accGroup);
     const filteredCartItems = cartItems.filter(
       (item) => item.acc.id !== accId || item.acc.group !== accGroup
     );
@@ -53,7 +48,6 @@ export default function CartProvider({ children }) {
           ? changedCartItem
           : item
       )
-      // cartItems.map((item) => (item.acc.id === acc.id ? changedCartItem : item))
     );
   };
 

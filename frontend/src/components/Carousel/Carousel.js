@@ -1,18 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-// import { imageSlide } from "../../../../backend/src/data";
-// import { getAllSlidses } from "../../services/carouselService";
 import classes from "./carousel.module.css";
-
-// const initialState = { SlidesAcc: [] };
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "SLIDES_LOADED":
-//       return { ...state, SlidesAcc: action.payload };
-//     default:
-//       return state;
-//   }
-// };
-
 export default function Carousel() {
   const imageSlide = [
     {
@@ -37,9 +24,6 @@ export default function Carousel() {
     },
   ];
   const [currentState, setCurrentState] = useState(0);
-  // const [state, dispatch] = useReducer(reducer, initialState);
-  // const { SlidesAcc } = state;
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (currentState === 3) {
@@ -48,17 +32,11 @@ export default function Carousel() {
         setCurrentState(currentState + 1);
       }
     }, 10000);
-    // const loadSlides = getAllSlides();
-    // loadSlides.then((slides_accessories) =>
-    // dispatch({ type: "SLIDES_LOADED", payload: slides_accessories })
-    // );
-
     return () => clearTimeout(timer);
   }, [currentState]);
 
   const bgImageStyle = {
     backgroundImage: `url(${imageSlide[currentState].url})`,
-    // backgroundImage: `url(${SlidesAcc[currentState].url})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     height: "100%",
@@ -68,8 +46,6 @@ export default function Carousel() {
   };
   return (
     <>
-      {/* {console.log(SlidesAcc)}
-      <div className={classes.huev}>{SlidesAcc[1].title}</div> */}
       <div className={classes.containerStyle}>
         <div style={bgImageStyle}></div>
         <div className={classes.transparentbackground}></div>

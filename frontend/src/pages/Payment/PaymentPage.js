@@ -14,19 +14,14 @@ export default function PaymentPage() {
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    // addToCart(acc);
     navigate("/cart");
   };
 
   const handleContinue = async () => {
-    // try {
     const orderId = await pay();
     clearCart();
     toast.success("ORDER TOTALLY CONFIRMED", "Success");
     navigate("/track/" + orderId.id);
-    // } catch (error) {
-    // toast.error("CHANGE to confirm failed", "Error");
-    // }
   };
   useEffect(() => {
     getNewOrderForCurrentUser().then((data) => setOrder(data));
@@ -75,14 +70,10 @@ export default function PaymentPage() {
           </div>
         </div>
       </div>
-      {/* <OrderItemsList order={JSON.parse(order.ord)} /> */}
-      {/* {console.log("paymentpage:")} */}
-      {/* {console.log(order.ord)} */}
 
       <div className={classes.buttons_container}>
         <div className={classes.buttons}>
           <Button
-            // type="submit"
             onClick={handleAddToCart}
             text="GO TO CART"
             width="100%"
@@ -90,7 +81,6 @@ export default function PaymentPage() {
           />
 
           <Button
-            // type="submit"
             onClick={handleContinue}
             text="CONTINUE SHOPPING/CREATE A NEW ORDER"
             width="100%"
@@ -98,9 +88,6 @@ export default function PaymentPage() {
           />
         </div>
       </div>
-      {/* <div>
-        <pre>{JSON.stringify(order.ord, null, 2)}</pre>
-      </div> */}
     </>
   );
 }

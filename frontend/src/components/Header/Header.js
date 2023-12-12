@@ -5,16 +5,9 @@ import { useCart } from "../../hooks/useCart";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Header() {
-  // const user = {
-  //   name: "Jhon",
-  // };
   const { user, logout } = useAuth();
-  // const cart = {
-  //   totalCount: 10,
-  // };
   const { cart } = useCart();
 
-  // const logout = () => {};
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -53,7 +46,6 @@ export default function Header() {
                   <span className={classes.cart_count}>{cart.totalCount}</span>
                 )}
               </Link>
-              {/* <Link to="/dbtest">DB test</Link> */}
             </li>
           </ul>
         </nav>

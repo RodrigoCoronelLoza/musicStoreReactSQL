@@ -49,7 +49,6 @@ export default function OrderTrackPage() {
             <Link to="/payment">Go To Payment</Link>
           </div>
         )}
-        {/* {console.log(order)} */}
       </div>
     )
   );

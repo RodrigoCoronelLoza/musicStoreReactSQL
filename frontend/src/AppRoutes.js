@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import AccessoryPage from "./pages/Accesory/AccessoryPage";
 import CartPage from "./pages/Cart/CartPage";
 import ClarinetPage from "./pages/Clarinet/ClarinetPage";
-import Dbtest from "./pages/dbtest/DbtestPage";
 import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Login/LoginPage";
 import SaxophonePage from "./pages/Saxophone/SaxophonePage";
@@ -90,8 +89,6 @@ export default function AppRoutes() {
           </AuthRoute>
         }
       ></Route>
-      {/* <Route path="/payment" element={<PaymentPage />}></Route> */}
-      <Route path="/dbtest" element={<Dbtest />}></Route>
     </Routes>
   );
 }

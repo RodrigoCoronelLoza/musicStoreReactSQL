@@ -25,11 +25,6 @@ export default function CheckoutPage() {
   } = useForm();
 
   const submit = async (data) => {
-    // if (!order.addressLatLng) {
-    //   toast.warning("Please select your location on the map");
-    //   return;
-    // }
-
     await createOrder({
       order: order,
       name: data.name,
@@ -37,7 +32,6 @@ export default function CheckoutPage() {
       phoneNumber: data.phonenumber,
       email: data.email,
     });
-    // console.log("cel:" + data.phonenumber);
     navigate("/payment");
   };
 
@@ -81,21 +75,8 @@ export default function CheckoutPage() {
               }
             />
           </div>
-          {/* {console.log("checkoutpage:")}
-          {console.log(order)} */}
           <OrderItemsList order={order} />
         </div>
-        {/* <div>
-          <Title title="Choose Your Location" fontSize="1.6rem" />
-          <Map
-            location={order.addressLatLng}
-            onChange={(latlng) => {
-              console.log(latlng);
-              setOrder({ ...order, addressLatLng: latlng });
-            }}
-          />
-        </div> */}
-
         <div className={classes.buttons_container}>
           <div className={classes.buttons}>
             <Button

@@ -9,7 +9,6 @@ function Input(
   const getErrorMessage = () => {
     if (!error) return;
     if (error.message) return error.message;
-    //defaults
     switch (error.type) {
       case "required":
         return "This Field Is Required";

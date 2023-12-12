@@ -20,20 +20,15 @@ export default function AccessoryPage({ folder }) {
   };
 
   useEffect(() => {
-    // const x = getClarById(id);
-    // console.log({ id });
     if (folder === "clarinet") getClarById(id).then(setAcc);
     if (folder === "saxophone") getSaxById(id).then(setAcc);
-    // console.log({ acc });
   }, [id]);
   return (
     <>
-      {/* {console.log({ acc })} */}
       {!acc ? (
         <NotFound message="Accesory not found" linkText="back to home page" />
       ) : (
         <div className={classes.container}>
-          {/* <h1>{acc.url}</h1> */}
           <img
             className={classes.image}
             src={`/images/${folder}/${acc.url}`}

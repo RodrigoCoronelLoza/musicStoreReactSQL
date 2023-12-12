@@ -1,28 +1,12 @@
 import { Router } from "express";
-// import {
-// clarinet_accesories,
-// sample_tags_clar,
-// saxophone_accesories,
-// sample_tags_sax,
-// } from "../data.js";
-
 import connection from "../db.js";
 import handler from "express-async-handler";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  //   res.send(clarinet_accesories);
-});
-
-// router.get("/slides", (req, res) => {
-//   res.send(imageSlide);
-// });
-
 router.get(
   "/clarinet",
   handler((req, res) => {
-    // res.send(clarinet_accesories);
     const sql = "SELECT * FROM music_store.clarinet2";
     connection.query(sql, async (err, data) => {
       if (err) return res.json(err);
@@ -46,7 +30,7 @@ router.get(
       function foo(array) {
         let a = [],
           b = [],
-          arr = [...array], // clone array so we don't change the original when using .sort()
+          arr = [...array],
           prev;
 
         arr.sort();
@@ -78,7 +62,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(final_array);
     });
-    // res.send(sample_tags_clar);
   })
 );
 
@@ -91,10 +74,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(data);
     });
-    // const clar_found = clarinet_accesories.filter((item) =>
-    //   item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
-    // res.send(clar_found);
   })
 );
 
@@ -108,10 +87,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(data);
     });
-    // const tag_found = clarinet_accesories.filter((item) =>
-    // item.tags?.includes(tag)
-    // );
-    // res.send(tag_found);
   })
 );
 
@@ -119,22 +94,17 @@ router.get(
   "/clarinet/:clarId",
   handler((req, res) => {
     const { clarId } = req.params;
-    // console.log("la identidad", clarId);
     const sql = `SELECT * FROM music_store.clarinet2 WHERE id='${clarId}'`;
     connection.query(sql, async (err, data) => {
-      // console.log(data);
       if (err) return res.json(err);
       return res.json(data);
     });
-    // const id_clar_found = clarinet_accesories.find((item) => item.id === clarId);
-    // res.send(id_clar_found);
   })
 );
 
 router.get(
   "/saxophone",
   handler((req, res) => {
-    //res.send(saxophone_accesories);
     const sql = "SELECT * FROM music_store.saxophone2";
     connection.query(sql, async (err, data) => {
       if (err) return res.json(err);
@@ -158,7 +128,7 @@ router.get(
       function foo(array) {
         let a = [],
           b = [],
-          arr = [...array], // clone array so we don't change the original when using .sort()
+          arr = [...array],
           prev;
 
         arr.sort();
@@ -190,7 +160,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(final_array);
     });
-    // res.send(sample_tags_sax);
   })
 );
 
@@ -203,10 +172,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(data);
     });
-    // const sax_found = saxophone_accesories.filter((item) =>
-    //   item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
-    // res.send(sax_found);
   })
 );
 
@@ -220,11 +185,6 @@ router.get(
       if (err) return res.json(err);
       return res.json(data);
     });
-
-    // const tag_found = saxophone_accesories.filter((item) =>
-    //   item.tags?.includes(tag)
-    // );
-    // res.send(tag_found);
   })
 );
 
@@ -234,12 +194,9 @@ router.get(
     const { saxId } = req.params;
     const sql = `SELECT * FROM music_store.saxophone2 WHERE id='${saxId}'`;
     connection.query(sql, async (err, data) => {
-      // console.log(data);
       if (err) return res.json(err);
       return res.json(data);
     });
-    // const id_sax_found = saxophone_accesories.find((item) => item.id === saxId);
-    // res.send(id_sax_found);
   })
 );
 

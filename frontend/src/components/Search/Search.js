@@ -22,7 +22,6 @@ export default function Search({ folder }) {
         placeholder="Search Accessories"
         onChange={(e) => setTerm(e.target.value)}
         onKeyUp={(e) => e.key === "Enter" && search()}
-        // defaultValue={searchTerm}
         value={term}
       />
       <button onClick={search}>Search</button>

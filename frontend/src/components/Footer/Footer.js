@@ -6,9 +6,9 @@ export default function Footer() {
     <footer className={classes.footer}>
       <div className={classes.container}>
         <p>Author: Rodrigo Coronel Loza</p>
-        <p>
+        {/* <p>
           <a href="mailto:drigo31416@gmail.com">drigo31416@gmail.com</a>
-        </p>
+        </p> */}
       </div>
     </footer>
   );

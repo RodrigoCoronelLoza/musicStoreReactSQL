@@ -13,8 +13,6 @@ export default function OrderItemsList({ order }) {
           </td>
         </tr>
 
-        {/* {console.log(order)} */}
-
         {order.items.map((item) => (
           <tr key={item.acc.id}>
             <td>
